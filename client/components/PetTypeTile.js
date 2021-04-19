@@ -1,0 +1,25 @@
+import React from "react"
+import { Link } from "react-router-dom"
+
+const PetTypeTile = (props) => {
+    const { id, type, imageUrl, description } = props.typeOfPet
+
+    let descriptionBlock
+    if(description) {
+        descriptionBlock= <p>{description}</p>;
+    }
+   
+    return(
+        <div>
+            <h3>
+                <Link to={`/pets/${id}`}>{type}</Link>
+            </h3>
+            <Link to={`/pets/${id}`}>
+                <img src={`${imageUrl}`} alt={`${type}`}></img>
+            </Link>
+            {descriptionBlock}
+        </div>
+    )
+}
+
+export default PetTypeTile
