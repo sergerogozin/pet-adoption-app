@@ -1,10 +1,10 @@
 import express from "express"
 import clientRouter from "./clientRouter.js"
-import petsRouter from "./api/v1/petsRouter.js"
+import petTypesRouter from "./api/v1/petTypesRouter.js"
 
 const rootRouter = new express.Router()
 
-rootRouter.use("/api/v1/pets", petsRouter);
+rootRouter.use("/api/v1/petTypes", petTypesRouter);
 
 rootRouter.use("/", clientRouter)
 

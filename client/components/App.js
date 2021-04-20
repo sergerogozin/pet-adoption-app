@@ -6,7 +6,6 @@ import $ from "jquery"
 import "../assets/scss/main.scss"
 
 import PetTypesList from "./PetTypesList.js"
-import Home from "./Home.js"
 
 const App = props => {
   useEffect(() => {
@@ -16,7 +15,6 @@ const App = props => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
         <Route exact path="/pets" component={PetTypesList} />
       </Switch>
     </BrowserRouter>

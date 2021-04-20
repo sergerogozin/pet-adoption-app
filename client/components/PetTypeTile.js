@@ -4,10 +4,10 @@ import { Link } from "react-router-dom"
 const PetTypeTile = (props) => {
     const { id, type, imageUrl, description } = props.typeOfPet
 
-    let descriptionBlock
+    let descriptionBlock = <p>N/A</p>;
     if(description) {
         descriptionBlock= <p>{description}</p>;
-    }
+    } 
    
     return(
         <div>
