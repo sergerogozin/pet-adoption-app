@@ -1,0 +1,31 @@
+{
+    "data": {
+        "petTypes": [
+            {
+                "type": "dog",
+                "imgURL": "placeholder",
+                "description": "Man's best friend!"
+            }, 
+            {
+                "type": "cat",
+                "imgURL": "placeholder",
+                "description": "Naps and cuddles!"
+            },
+            {
+                "type": "hamster",
+                "imgURL": "placeholder",
+                "description": "Likes to eat a lot!"
+            },
+            {
+                "type": "fish",
+                "imgURL": "placeholder",
+                "description": "Who is ready for a bubble party?!"
+            },
+            {
+                "type": "turtle",
+                "imgURL": "placeholder",
+                "description": "150 is the new 25!"
+            }
+        ]
+    }
+}
