@@ -19,6 +19,7 @@ class PetType {
             const petTypes = petTypeData.map(type => {
                 return new PetType(type);
             })
+            
             return petTypes;
         } catch(err) {
             console.log(err);

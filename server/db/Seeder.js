@@ -15,15 +15,17 @@ class Seeder {
     let adoptablePets = contents.data.adoptablePets;
 
     try{
-      petTypes.forEach(async (petType) => {
-          let query = 'INSERT INTO pet_types (type, img_url, description) VALUES ($1, $2, $3)';
-          let result = await pool.query(query, [petType.type, petType.imgURL, petType.description]);
-        });
+      for (let i = 0; i < petTypes.length; i++) {
+        let query = 'INSERT INTO pet_types (type, img_url, description) VALUES ($1, $2, $3)';
+        let result = await pool.query(query, [petTypes[i].type, petTypes[i].imgURL, petTypes[i].description]);
+      }
 
-      adoptablePets.forEach( async (pet) => {
-        let idArr = await pool.query('INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_story, available_for_adoption, pet_type_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id', [pet.name, pet.img_url, pet.age, pet.vaccination_status, pet.adoption_story, pet.available_for_adoption, pet.pet_type_id])
-      })
-     pool.end();
+      for (let i = 0; i < adoptablePets.length; i++) {
+        let query = 'INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_story, available_for_adoption, pet_type_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;'
+        let idArr = await pool.query(query, [adoptablePets[i].name, adoptablePets[i].img_url, adoptablePets[i].age, adoptablePets[i].vaccination_status, adoptablePets[i].adoption_story, adoptablePets[i].available_for_adoption, adoptablePets[i].pet_type_id])
+      }
+      
+      pool.end();
     } catch(error) {
       console.log(error);
       pool.end();
