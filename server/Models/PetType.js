@@ -5,7 +5,7 @@ const pool = new pg.Pool({
 })
 
 class PetType {
-    constructor({ id, type, description, img_url, imageUrl }) {
+    constructor({ id = null, type, description, img_url, imageUrl }) {
         this.id = id
         this.type = type
         this.description = description
@@ -26,9 +26,9 @@ class PetType {
         }
     }
 
-    static async findById(id) {
+    static async findByType(type) {
         try{
-            const result = await pool.query(`SELECT * FROM pet_types WHERE id = $1;`, [id]);
+            const result = await pool.query(`SELECT * FROM pet_types WHERE type = $1;`, [type]);
             const petTypeData = result.rows[0];
             const petType = new this(petTypeData);
             return petType;

@@ -6,7 +6,9 @@ router.get("/", (req, res) => {
   res.redirect("/pets")
 })
 
-const clientRoutes = ["/pets", "/pets/:id"]
+
+
+const clientRoutes = ["/pets", "/pets/:type"]
 router.get(clientRoutes, (req, res) => {
   res.render("home")
 })
