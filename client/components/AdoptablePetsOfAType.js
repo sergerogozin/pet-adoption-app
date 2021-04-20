@@ -27,9 +27,9 @@ const AdoptablePetsOfAType = (props) => {
 
   const pets = petType.adoptablePets.map( pet => {
     return <PetTile
-      key = {pet.id}
-      pet = {pet}
-      type = {petType.type}
+        key = {pet.id}
+        pet = {pet}
+        type = {petType.type}
       />
   })
 
@@ -37,16 +37,12 @@ const AdoptablePetsOfAType = (props) => {
     getData();
   }, [])
 
-
   return (
     <div>
       <h1>Adoptable {petType.type}</h1>
       {pets}
     </div>
   )
-
-
-
 }
 
 export default AdoptablePetsOfAType

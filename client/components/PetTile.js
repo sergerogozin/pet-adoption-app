@@ -11,7 +11,7 @@ const PetTile = (props) => {
         <img src={imageUrl} alt={props.type} />
       </Link>
       <p>Age: {age}</p>
-      <p>Vaccination Status: {vaccinationStatus? 'YES' : 'NO'}</p>
+      <p>Vaccination Status: {vaccinationStatus ? 'YES' : 'NO'}</p>
     </div>
   )
 }
