@@ -14,12 +14,16 @@ class Seeder {
     
     //console.log(contents.data.petTypes[0]);
     let petTypes = contents.data.petTypes;
-    petTypes.map(async (petType) => {
-      let query = 'INSERT INTO pet_types (type, img_url, description) VALUES ($1, $2, $3) RETURNING id';
-      let result = await pool.query(query, [petType.type, petType.imgURL, petType.description]);
-
-      console.log(result.rows[0]);
-    });
+    try{
+      petTypes.forEach(async (petType) => {
+          let query = 'INSERT INTO pet_types (type, img_url, description) VALUES ($1, $2, $3) RETURNING id';
+          let result = await pool.query(query, [petType.type, petType.imgURL, petType.description]);
+          console.log(result.rows[0]);
+      });
+      pool.end();
+    } catch(error) {
+      console.log(error);
+    }
   }
 }
 

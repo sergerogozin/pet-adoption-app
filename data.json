@@ -2,27 +2,27 @@
     "data": {
         "petTypes": [
             {
-                "type": "dog",
+                "type": "Dogs",
                 "imgURL": "https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg",
                 "description": "Man's best friend!"
             }, 
             {
-                "type": "cat",
+                "type": "Cats",
                 "imgURL": "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg",
                 "description": "Naps and cuddles!"
             },
             {
-                "type": "hamster",
+                "type": "Hamsters",
                 "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBGYiwp6_f6c5FZdgSU2IZJo1Gcuy6AZoI9Gc_zHU_fvXgqIEDjCKH061gQL2bRWJ7e5yxRSc&usqp=CAc",
                 "description": "Likes to eat a lot!"
             },
             {
-                "type": "fish",
+                "type": "Fish",
                 "imgURL": "https://petstockimages.blob.core.windows.net/blog/choosefishheader.png",
                 "description": "Who is ready for a bubble party?!"
             },
             {
-                "type": "turtle",
+                "type": "Turtles",
                 "imgURL": "http://cdn.cnn.com/cnnnext/dam/assets/200812120128-green-turtle-baby-malaysia-1.jpg",
                 "description": "150 is the new 25!"
             }
