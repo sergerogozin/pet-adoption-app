@@ -37,6 +37,23 @@ class PetType {
             throw(err);
         }
     }
+
+    async adoptablePets(){
+        const adoptablePetFile = await import("./AdoptablePet.js");
+        const AdoptablePet = adoptablePetFile.default;
+
+        try{
+            const query = `SELECT * FROM adoptable_pets WHERE pet_type_id = $1;`;
+            const results = await pool.query(query, [this.id]);
+
+            const relatedAdoptablePetsData = results.rows;
+            const relatedAdoptablePets = relatedAdoptablePetsData.map(adoptablePet => new AdoptablePet(adoptablePet));
+            return relatedAdoptablePets;
+        } catch(error) {
+            console.error(error);
+            throw(error);
+        }
+    }
 }
 
 export default PetType
