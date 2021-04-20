@@ -4,6 +4,7 @@ import { hot } from "react-hot-loader/root"
 import "foundation-sites"
 import $ from "jquery"
 import "../assets/scss/main.scss"
+import AdoptablePetsOfAType from "./AdoptablePetsOfAType.js";
 
 import PetTypesList from "./PetTypesList.js"
 
@@ -16,6 +17,7 @@ const App = props => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/pets" component={PetTypesList} />
+        <Route exact path="/pets/:type" component={AdoptablePetsOfAType} />
       </Switch>
     </BrowserRouter>
   )

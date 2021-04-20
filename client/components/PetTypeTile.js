@@ -7,15 +7,15 @@ const PetTypeTile = (props) => {
     let descriptionBlock = <p>N/A</p>;
     if(description) {
         descriptionBlock= <p>{description}</p>;
-    } 
-   
+    }
+
     return(
         <div>
             <h3>
-                <Link to={`/pets/${id}`}>{type}</Link>
+                <Link to={`/pets/${type}`}>{type}</Link>
             </h3>
-            <Link to={`/pets/${id}`}>
-                <img src={`${imageUrl}`} alt={`${type}`}></img>
+            <Link to={`/pets/${type}`}>
+                <img src={imageUrl} alt={type}></img>
             </Link>
             {descriptionBlock}
         </div>
