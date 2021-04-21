@@ -13,28 +13,28 @@ class PetType {
     }
 
     static async findAll() {
-        try{
+        try {
             const rawData = await pool.query("SELECT * FROM pet_types;")
             const petTypeData = rawData.rows;
             const petTypes = petTypeData.map(type => {
                 return new PetType(type);
             })
             return petTypes;
-        } catch(err) {
+        } catch (err) {
             console.log(err);
-            throw(err);
+            throw (err);
         }
     }
 
     static async findById(id) {
-        try{
+        try {
             const result = await pool.query(`SELECT * FROM pet_types WHERE id = $1;`, [id]);
             const petTypeData = result.rows[0];
             const petType = new this(petTypeData);
             return petType;
-        } catch(err) {
+        } catch (err) {
             console.log(err);
-            throw(err);
+            throw (err);
         }
     }
 }
