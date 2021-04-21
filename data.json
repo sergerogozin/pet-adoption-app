@@ -37,7 +37,6 @@
         "adoption_story": "Found in the park",
         "available_for_adoption": false,
         "pet_type_id": 1
-
       },
       {
         "name": "Larky",
@@ -56,7 +55,6 @@
         "adoption_story": "Owner allergic",
         "available_for_adoption": true,
         "pet_type_id": 1
-
       },
       {
         "name": "Sam",
@@ -75,7 +73,6 @@
         "adoption_story": "Too many fleas",
         "available_for_adoption": true,
         "pet_type_id": 2
-
       }
     ]
   }

@@ -8,8 +8,9 @@ const AdoptionForm = () => {
     email: "",
     homeStatus: "own"
   })
-  let errorContainer = null
   const [errors, setErrors] = useState([])
+  
+  let errorContainer = null
   if (errors.length !== 0) {
     errorContainer = errors.map(error => {
       error = error === "phoneNumber" ? "phone number" : error

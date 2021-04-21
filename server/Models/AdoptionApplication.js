@@ -22,7 +22,6 @@ class AdoptionApplication {
       console.error(error)
       throw error
     }
-
   }
 }
 
