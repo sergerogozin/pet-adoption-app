@@ -1,31 +1,80 @@
 {
-    "data": {
-        "petTypes": [
-            {
-                "type": "Dogs",
-                "imgURL": "https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg",
-                "description": "Man's best friend!"
-            }, 
-            {
-                "type": "Cats",
-                "imgURL": "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg",
-                "description": "Naps and cuddles!"
-            },
-            {
-                "type": "Hamsters",
-                "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBGYiwp6_f6c5FZdgSU2IZJo1Gcuy6AZoI9Gc_zHU_fvXgqIEDjCKH061gQL2bRWJ7e5yxRSc&usqp=CAc",
-                "description": "Likes to eat a lot!"
-            },
-            {
-                "type": "Fish",
-                "imgURL": "https://petstockimages.blob.core.windows.net/blog/choosefishheader.png",
-                "description": "Who is ready for a bubble party?!"
-            },
-            {
-                "type": "Turtles",
-                "imgURL": "http://cdn.cnn.com/cnnnext/dam/assets/200812120128-green-turtle-baby-malaysia-1.jpg",
-                "description": "150 is the new 25!"
-            }
-        ]
-    }
+  "data": {
+    "petTypes": [
+      {
+        "type": "dogs",
+        "imgURL": "https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg",
+        "description": "Man's best friend!"
+      },
+      {
+        "type": "cats",
+        "imgURL": "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg",
+        "description": "Naps and cuddles!"
+      },
+      {
+        "type": "hamsters",
+        "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBGYiwp6_f6c5FZdgSU2IZJo1Gcuy6AZoI9Gc_zHU_fvXgqIEDjCKH061gQL2bRWJ7e5yxRSc&usqp=CAc",
+        "description": "Likes to eat a lot!"
+      },
+      {
+        "type": "fish",
+        "imgURL": "https://petstockimages.blob.core.windows.net/blog/choosefishheader.png",
+        "description": "Who is ready for a bubble party?!"
+      },
+      {
+        "type": "turtles",
+        "imgURL": "http://cdn.cnn.com/cnnnext/dam/assets/200812120128-green-turtle-baby-malaysia-1.jpg",
+        "description": "150 is the new 25!"
+      }
+    ],
+
+    "adoptablePets": [
+      {
+        "name": "Sparky",
+        "img_url": "https://i.pinimg.com/originals/34/0a/6d/340a6dbd119495fde95aba639688e8b3.jpg",
+        "age": 3,
+        "vaccination_status": true,
+        "adoption_story": "Found in the park",
+        "available_for_adoption": false,
+        "pet_type_id": 1
+
+      },
+      {
+        "name": "Larky",
+        "img_url": "https://www.pdsa.org.uk/media/7888/dalmatian-gallery-outdoors-8-min.jpg?anchor=center&mode=crop&quality=100&height=500&bgcolor=fff&rnd=132179483010000000",
+        "age": 5,
+        "vaccination_status": false,
+        "adoption_story": "Found in the junk yard",
+        "available_for_adoption": true,
+        "pet_type_id": 1
+      },
+      {
+        "name": "Jose",
+        "img_url": "https://www.dogbreedinfo.com/images32/LhasaApsoPurebredRescueDogAndy1.jpg",
+        "age": 20,
+        "vaccination_status": true,
+        "adoption_story": "Owner allergic",
+        "available_for_adoption": true,
+        "pet_type_id": 1
+      },
+      {
+        "name": "Sam",
+        "img_url": "http://spectrum-sitecore-spectrumbrands.netdna-ssl.com/~/media/Pet/Furminator/Images/Solution%20Center%20Images/Feature%20Images/LGLH_Cat.jpg",
+        "age": 1,
+        "vaccination_status": true,
+        "adoption_story": "Bites and scratches",
+        "available_for_adoption": true,
+        "pet_type_id": 2
+      },
+      {
+        "name": "Greta",
+        "img_url": "https://www.thehappycatsite.com/wp-content/uploads/2017/10/30-Awesome-Tabby-Cat-Facts-HC-long.jpg",
+        "age": 7,
+        "vaccination_status": false,
+        "adoption_story": "Too many fleas",
+        "available_for_adoption": true,
+        "pet_type_id": 2
+      }
+    ]
+  }
 }

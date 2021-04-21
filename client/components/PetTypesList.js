@@ -15,7 +15,7 @@ const PetTypesList = (props) => {
                 throw (error);
             }
             const responseBody = await response.json();
-            console.log(responseBody);
+            
             setPetTypes(responseBody.petTypes);
         } catch (err) {
             console.error(`Error in Fetch: ${err.message}`);

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import _ from "lodash"
 
 const AdoptionForm = () => {
   const [adoptionData, setAdoptionData] = useState({
@@ -11,7 +12,8 @@ const AdoptionForm = () => {
   const [errors, setErrors] = useState([])
   if (errors.length !== 0) {
     errorContainer = errors.map(error => {
-      return <p>{error}</p>
+      error = error === "phoneNumber" ? "phone number" : error
+      return <p>{`${_.capitalize(error)} is empty`}</p>
     })
   }
 
@@ -26,7 +28,7 @@ const AdoptionForm = () => {
     const errorsArray = []
     const fieldsData = Object.keys(adoptionData)
     fieldsData.forEach(fieldName => {
-      if (adoptionData[fieldName] === "") {
+      if (adoptionData[fieldName].trim() === "") {
         errorsArray.push(fieldName)
       }
     })
@@ -44,6 +46,7 @@ const AdoptionForm = () => {
         email: "",
         homeStatus: "own"
       })
+      setErrors([])
     }
     else {
       setErrors(errorsArray)
@@ -52,7 +55,7 @@ const AdoptionForm = () => {
 
   const addInfo = async () => {
     try {
-      const response = await fetch("/api/v1/petTypes", {
+      const response = await fetch("/api/v1/petAdoption", {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json"
@@ -60,17 +63,12 @@ const AdoptionForm = () => {
         body: JSON.stringify(adoptionData)
       })
       if (!response.ok) {
-        if (response.status === 422) {
-          const body = await response.json()
-          return setErrors(body.errors)
-        } else {
-          const errorMessage = `${response.status} (${response.statusText})`
-          const error = new Error(errorMessage)
-          throw (error)
-        }
-      } else {
-        const body = await response.json()
+        const errorMessage = `${response.status} (${response.statusText})`;
+        const error = new Error(errorMessage);
+        throw (error);
       }
+      const body = await response.json()
+
     } catch (err) {
       console.error(err)
     }
@@ -83,17 +81,32 @@ const AdoptionForm = () => {
 
       <label htmlFor="name">
         Name:
-      <input id="name" name="name" value={adoptionData.name} onChange={handleChange} />
+      <input
+          id="name"
+          type="text"
+          name="name"
+          value={adoptionData.name}
+          onChange={handleChange} />
       </label>
 
       <label htmlFor="phone-number">
         Phone Number:
-      <input id="phone-number" name="phoneNumber" value={adoptionData.phoneNumber} onChange={handleChange} />
+      <input
+          id="phone-number"
+          type="text"
+          name="phoneNumber"
+          value={adoptionData.phoneNumber}
+          onChange={handleChange} />
       </label>
 
       <label htmlFor="email">
         Email:
-      <input id="email" name="email" value={adoptionData.email} onChange={handleChange} />
+      <input
+          id="email"
+          type="text"
+          name="email"
+          value={adoptionData.email}
+          onChange={handleChange} />
       </label>
 
       <label htmlFor="home-status">Home Status

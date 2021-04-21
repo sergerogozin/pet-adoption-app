@@ -1,7 +1,7 @@
 import pg from "pg"
 
 const pool = new pg.Pool({
-  connectionString: "postgres://postgres:password@localhost:5432/pets_app"
+  connectionString: "postgres://postgres:password@localhost:5432/pets-app"
 })
 
 class AdoptionApplication {
