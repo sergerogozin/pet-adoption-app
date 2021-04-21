@@ -3,6 +3,7 @@ import AdoptionApplication from "../../../models/AdoptionApplication.js"
 
 const petAdoptionRouter = new express.Router();
 
+
 petAdoptionRouter.post("/", async (req, res) => {
   try {
       const applicationObject = new AdoptionApplication(req.body)
