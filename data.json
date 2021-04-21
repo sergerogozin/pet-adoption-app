@@ -36,8 +36,7 @@
         "vaccination_status": true,
         "adoption_story": "Found in the park",
         "available_for_adoption": false,
-        "pet_type_id": 2
-
+        "pet_type_id": 1
       },
       {
         "name": "Larky",
@@ -46,7 +45,7 @@
         "vaccination_status": false,
         "adoption_story": "Found in the junk yard",
         "available_for_adoption": true,
-        "pet_type_id": 2
+        "pet_type_id": 1
       },
       {
         "name": "Jose",
@@ -55,7 +54,7 @@
         "vaccination_status": true,
         "adoption_story": "Owner allergic",
         "available_for_adoption": true,
-        "pet_type_id": 2
+        "pet_type_id": 1
       },
       {
         "name": "Sam",
@@ -64,7 +63,7 @@
         "vaccination_status": true,
         "adoption_story": "Bites and scratches",
         "available_for_adoption": true,
-        "pet_type_id": 1
+        "pet_type_id": 2
       },
       {
         "name": "Greta",
@@ -73,7 +72,7 @@
         "vaccination_status": false,
         "adoption_story": "Too many fleas",
         "available_for_adoption": true,
-        "pet_type_id": 1
+        "pet_type_id": 2
       }
     ]
   }
