@@ -36,7 +36,7 @@
         "vaccination_status": true,
         "adoption_story": "Found in the park",
         "available_for_adoption": false,
-        "pet_type_id": 2
+        "pet_type_id": 1
 
       },
       {
@@ -46,7 +46,7 @@
         "vaccination_status": false,
         "adoption_story": "Found in the junk yard",
         "available_for_adoption": true,
-        "pet_type_id": 2
+        "pet_type_id": 1
       },
       {
         "name": "Jose",
@@ -55,7 +55,7 @@
         "vaccination_status": true,
         "adoption_story": "Owner allergic",
         "available_for_adoption": true,
-        "pet_type_id": 2
+        "pet_type_id": 1
       },
       {
         "name": "Sam",
@@ -64,7 +64,7 @@
         "vaccination_status": true,
         "adoption_story": "Bites and scratches",
         "available_for_adoption": true,
-        "pet_type_id": 1
+        "pet_type_id": 2
       },
       {
         "name": "Greta",
@@ -73,7 +73,16 @@
         "vaccination_status": false,
         "adoption_story": "Too many fleas",
         "available_for_adoption": true,
-        "pet_type_id": 1
+        "pet_type_id": 2
+      },
+      {
+        "name": "Ham",
+        "img_url": "https://cdn.mos.cms.futurecdn.net/S62tKo2WjJ8NfU4bPX9GvU-970-80.jpg.webp",
+        "age": 2,
+        "vaccination_status": false,
+        "adoption_story": "Grew up on the wrong side of the tracks",
+        "available_for_adoption": true,
+        "pet_type_id": 3
       }
     ]
   }
