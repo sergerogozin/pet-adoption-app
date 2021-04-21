@@ -29,6 +29,38 @@ class AdoptablePet {
       throw(err);
     }
   }
+
+  static async findById(id) {
+    try {
+      const result = await pool.query("SELECT * FROM adoptable_pets WHERE id = $1;", [id]);
+
+      if (result.rowCount) {
+        const petDetailData = result.rows[0];
+        const petToReturn = new this(petDetailData);
+        return petToReturn; 
+      }
+    } catch(err) {
+      console.log(err);
+      throw(err);
+    }
+  }
+
+  async petType() {
+    const petTypeFile = await import("./PetType.js");
+    const PetType = petTypeFile.default;
+
+    try {
+      const query = 'SELECT * FROM pet_types WHERE id = $1;';
+      const result = await pool.query(query, [this.petTypeId]);
+
+      const relatedPetTypeData = result.rows[0];
+      const relatedPetType = new PetType(relatedPetTypeData);
+      return relatedPetType;
+    } catch(err) {
+      console.log(err);
+      throw(err) 
+    }
+  }
 }
 
 export default AdoptablePet;

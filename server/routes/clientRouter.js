@@ -4,13 +4,12 @@ const router = new express.Router()
 
 router.get("/", (req, res) => {
   res.redirect("/pets")
-})
+});
 
 
-
-const clientRoutes = ["/pets", "/pets/:type"]
+const clientRoutes = ["/pets", "/pets/:type", "/pets/:type/:id"]
 router.get(clientRoutes, (req, res) => {
   res.render("home")
-})
+});
 
-export default router
+export default router;

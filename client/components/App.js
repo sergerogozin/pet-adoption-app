@@ -7,6 +7,7 @@ import "../assets/scss/main.scss"
 import AdoptablePetsOfAType from "./AdoptablePetsOfAType.js";
 
 import PetTypesList from "./PetTypesList.js"
+import PetShow from "./PetShow.js"
 
 const App = props => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const App = props => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/pets" component={PetTypesList} />
+        <Route exact path="/pets/:type/:id" component={PetShow} />
         <Route exact path="/pets/:type" component={AdoptablePetsOfAType} />
       </Switch>
     </BrowserRouter>
