@@ -1,6 +1,6 @@
 import express from "express"
 
-import PetType from "../../../Models/PetType.js"
+import PetType from "../../../models/PetType.js"
 
 const petTypesRouter = new express.Router();
 
