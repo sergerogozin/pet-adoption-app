@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 DROP TABLE IF EXISTS adoption_applications;
+=======
+>>>>>>> 4de76760c73ebdc4e390070a9d06f7d0dd57dabf
 DROP TABLE IF EXISTS adoptable_pets;
 DROP TABLE IF EXISTS pet_types;
 
@@ -18,6 +21,7 @@ CREATE TABLE adoptable_pets (
   adoption_story VARCHAR(255) NOT NULL,
   available_for_adoption BOOLEAN DEFAULT TRUE,
   pet_type_id INTEGER REFERENCES pet_types(id)
+<<<<<<< HEAD
 );
 
 
@@ -31,3 +35,6 @@ CREATE TABLE adoption_applications(
   adoptable_pet_id INTEGER REFERENCES adoptable_pets(id) 
 );
 
+=======
+);
+>>>>>>> 4de76760c73ebdc4e390070a9d06f7d0dd57dabf

@@ -5,7 +5,7 @@ const pool = new pg.Pool({
 })
 
 class PetType {
-    constructor({ id, type, description, img_url, imageUrl }) {
+    constructor({ id = null, type, description, img_url, imageUrl }) {
         this.id = id
         this.type = type
         this.description = description
@@ -19,6 +19,7 @@ class PetType {
             const petTypes = petTypeData.map(type => {
                 return new PetType(type);
             })
+            
             return petTypes;
         } catch (err) {
             console.log(err);
@@ -26,15 +27,33 @@ class PetType {
         }
     }
 
-    static async findById(id) {
-        try {
-            const result = await pool.query(`SELECT * FROM pet_types WHERE id = $1;`, [id]);
+
+    static async findByType(type) {
+        try{
+            const result = await pool.query(`SELECT * FROM pet_types WHERE type = $1;`, [type]);
             const petTypeData = result.rows[0];
             const petType = new this(petTypeData);
             return petType;
         } catch (err) {
             console.log(err);
             throw (err);
+        }
+    }
+
+    async adoptablePets(){
+        const adoptablePetFile = await import("./AdoptablePet.js");
+        const AdoptablePet = adoptablePetFile.default;
+
+        try{
+            const query = `SELECT * FROM adoptable_pets WHERE pet_type_id = $1;`;
+            const results = await pool.query(query, [this.id]);
+
+            const relatedAdoptablePetsData = results.rows;
+            const relatedAdoptablePets = relatedAdoptablePetsData.map(adoptablePet => new AdoptablePet(adoptablePet));
+            return relatedAdoptablePets;
+        } catch(error) {
+            console.error(error);
+            throw(error);
         }
     }
 }
