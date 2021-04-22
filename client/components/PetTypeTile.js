@@ -13,10 +13,8 @@ const PetTypeTile = (props) => {
         <div className="tile">
             <Link to={`/pets/${type}`}>
                 <img src={imageUrl} alt={type}></img>
+                <h4>{type}</h4>
             </Link>
-            <h4>
-                <Link to={`/pets/${type}`}>{type}</Link>
-            </h4>
             {descriptionBlock}
         </div>
     )
