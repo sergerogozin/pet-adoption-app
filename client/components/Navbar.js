@@ -41,7 +41,6 @@ const NavBar = props => {
     <div>
       <div id="top-header">
         <div>
-          {/* <img src={require("../assets/images/logo.png")} alt="logo" /> */}
           <hgroup>
             <h3>Rescue</h3>
             <h6>Basic Pets Adoption Agency</h6>

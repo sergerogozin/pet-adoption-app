@@ -8,10 +8,8 @@ const PetTile = (props) => {
     <div className="tile">
       <Link to={`/pets/${props.type}/${id}`} >
         <img src={imageUrl} alt={props.type} />
+        <h4>{name}</h4>
       </Link>
-      <h4>
-        <Link to={`/pets/${props.type}/${id}`}>{name}</Link>
-      </h4>
       <p>Age: {age}</p>
       <p>Vaccination Status: {vaccinationStatus ? 'Yes' : 'No'}</p>
     </div>
