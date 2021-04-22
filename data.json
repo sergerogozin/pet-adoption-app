@@ -18,7 +18,7 @@
       },
       {
         "type": "fish",
-        "imgURL": "https://petstockimages.blob.core.windows.net/blog/choosefishheader.png",
+        "imgURL": "https://cdn.mos.cms.futurecdn.net/RY2EpSo74hvYXyAVpTN2Gg-1200-80.jpg",
         "description": "Who is ready for a bubble party?!"
       },
       {
@@ -49,7 +49,7 @@
       },
       {
         "name": "Jose",
-        "img_url": "https://www.dogbreedinfo.com/images32/LhasaApsoPurebredRescueDogAndy1.jpg",
+        "img_url": "https://doglime.com/wp-content/uploads/2019/03/Lhasa-Apso-puppies-information..jpg",
         "age": 20,
         "vaccination_status": true,
         "adoption_story": "Owner allergic",
@@ -73,6 +73,78 @@
         "adoption_story": "Too many fleas",
         "available_for_adoption": true,
         "pet_type_id": 2
+      },
+      {
+        "name": "George",
+        "img_url": "https://petkeen.com/wp-content/uploads/2020/08/Syrian-hamster_Shutterstock_Johannes-Menge.jpg",
+        "age": 1,
+        "vaccination_status": false,
+        "adoption_story": "Looking for a nice new home!",
+        "available_for_adoption": true,
+        "pet_type_id": 3
+      },
+      {
+        "name": "Kingslayer",
+        "img_url": "https://www.burgesspetcare.com/wp-content/uploads/2020/02/hamster-diets.jpg",
+        "age": 1,
+        "vaccination_status": false,
+        "adoption_story": "Loves his hamster ball!",
+        "available_for_adoption": true,
+        "pet_type_id": 3
+      },
+      {
+        "name": "Shirley",
+        "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Golden_hamster_front_1.jpg/1200px-Golden_hamster_front_1.jpg",
+        "age": 1,
+        "vaccination_status": false,
+        "adoption_story": "Needs a new home",
+        "available_for_adoption": true,
+        "pet_type_id": 3
+      },
+      {
+        "name": "Panda",
+        "img_url": "https://s3.amazonaws.com/static.organiclead.com/Site-451b5a88-b23e-4491-b970-ed18ebd78e4f/12.jpg",
+        "age": 1,
+        "vaccination_status": false,
+        "adoption_story": "Kitten ready for adoption!",
+        "available_for_adoption": true,
+        "pet_type_id": 2
+      },
+      {
+        "name": "Michelangelo",
+        "img_url": "https://vetstreet-brightspot.s3.amazonaws.com/eb/cb/548b05104e039dfe817fba71b30e/turtle-in-a-tank-thinkstockphotos-100304366.jpg",
+        "age": 34,
+        "vaccination_status": false,
+        "adoption_story": "Hero in a half shell",
+        "available_for_adoption": true,
+        "pet_type_id": 5
+      },
+      {
+        "name": "Sven",
+        "img_url": "https://apicms.thestar.com.my/uploads/images/2020/10/05/886667.jpg",
+        "age": 22,
+        "vaccination_status": false,
+        "adoption_story": "Likes lettuce",
+        "available_for_adoption": true,
+        "pet_type_id": 5
+      },
+      {
+        "name": "FishFace",
+        "img_url": "https://images.saymedia-content.com/.image/t_share/MTc0NDM2NTA1MDYwNjQ4NTgy/the-healing-power-of-pet-fish.jpg",
+        "age": 1,
+        "vaccination_status": false,
+        "adoption_story": "Easy to care for!",
+        "available_for_adoption": true,
+        "pet_type_id": 4
+      },
+      {
+        "name": "Lulu",
+        "img_url": "https://post.healthline.com/wp-content/uploads/2020/08/3180-Pug_green_grass-732x549-thumbnail-732x549.jpg",
+        "age": 2,
+        "vaccination_status": false,
+        "adoption_story": "Loves to cuddle!",
+        "available_for_adoption": true,
+        "pet_type_id": 1
       }
     ]
   }
