@@ -1,6 +1,8 @@
 import { set } from 'lodash';
 import React, { useState } from 'react'
 
+import ReusableErrorList from "./ReusableErrorList.js";
+
 const SurrenderForm = () => {
   const [surrenderData, setSurrenderData] = useState({
     name: "",
@@ -17,29 +19,7 @@ const SurrenderForm = () => {
 
   let errorContainer = null
   if (errors.length !== 0) {
-    errorContainer = errors.map(error => {
-      switch (error) {
-        case "phoneNumber":
-          error = "phone number";
-          break;
-        case "petType":
-          error = "pet type";
-          break;
-        case "petAge":
-          error = "pet age";
-          break;
-        case "petImage":
-          error = "pet image";
-          break;
-        case "petName":
-          error = "pet name";
-          break;
-        case "vaccinationStatus":
-          error = "vaccination status";
-          break;
-      }
-      return <p>{`${_.capitalize(error)} is empty or not selected.`}</p>
-    })
+    errorContainer = humanizeErrors(errors);
   }
 
   const checkForErrors = () => {
@@ -59,7 +39,6 @@ const SurrenderForm = () => {
 
 
   const onChange = event => {
-    console.log(event.currentTarget.value);
     setSurrenderData({
       ...surrenderData, [event.currentTarget.name]: event.currentTarget.value
     })
@@ -118,27 +97,24 @@ const SurrenderForm = () => {
       <h2>Pet Surrender Application</h2>
       <h3>{message}</h3>
       <form onSubmit={onSubmit}>
-        <label htmlFor="name" >
-          Name:
-      <input
+        <label htmlFor="name" >Name:
+          <input
             id="name"
             type="text"
             name="name"
             value={surrenderData.name}
             onChange={onChange} />
         </label>
-        <label htmlFor="phone-number">
-          Phone Number:
-      <input
+        <label htmlFor="phone-number">Phone Number:
+          <input
             id="phone-number"
             type="text"
             name="phoneNumber"
             value={surrenderData.phoneNumber}
             onChange={onChange} />
         </label>
-        <label htmlFor="email">
-          Email:
-      <input
+        <label htmlFor="email">Email:
+          <input
             id="email"
             type="text"
             name="email"
@@ -146,7 +122,7 @@ const SurrenderForm = () => {
             onChange={onChange} />
         </label>
         <label htmlFor="petType">Pet Type
-    <select name="petType" id="petType" onChange={onChange} value={surrenderData.petType}>
+          <select name="petType" id="petType" onChange={onChange} value={surrenderData.petType}>
             <option value="Select Pet Type">Select Pet type</option>
             <option value="dog">dog</option>
             <option value="cat">cat</option>
@@ -155,27 +131,24 @@ const SurrenderForm = () => {
             <option value="turle">turtle</option>
           </select>
         </label>
-        <label htmlFor="petName">
-          Pet Name:
-      <input
+        <label htmlFor="petName">Pet Name:
+          <input
             id="petName"
             type="text"
             name="petName"
             value={surrenderData.petName}
             onChange={onChange} />
         </label>
-        <label htmlFor="petAge">
-          Pet Age:
-      <input
+        <label htmlFor="petAge">Pet Age:
+        <input
             id="petAge"
             type="number"
             name="petAge"
             value={surrenderData.petAge}
             onChange={onChange} />
         </label>
-        <label htmlFor="petImage">
-          Pet Image:
-      <input
+        <label htmlFor="petImage">Pet Image:
+          <input
             id="petImage"
             type="text"
             name="petImage"
@@ -183,7 +156,7 @@ const SurrenderForm = () => {
             onChange={onChange} />
         </label>
         <label htmlFor="vaccinationStatus">Vaccination Status:
-      <select name="vaccinationStatus" id="vaccinationStatus" onChange={onChange} value={surrenderData.vaccinationStatus}>
+          <select name="vaccinationStatus" id="vaccinationStatus" onChange={onChange} value={surrenderData.vaccinationStatus}>
             <option value="Choose">Choose</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>

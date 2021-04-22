@@ -37,12 +37,18 @@ class AdoptablePet {
       if (result.rowCount) {
         const petDetailData = result.rows[0];
         const petToReturn = new this(petDetailData);
-        return petToReturn; 
+        return petToReturn;
       }
     } catch(err) {
       console.log(err);
       throw(err);
     }
+  }
+
+  async save(){
+    const query = "INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_story, available_for_adoption, pet_type_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;";
+    const result = await pool.query(query, [this.name, this.imageUrl, this.age, this.vaccinationStatus,this.adoptionStory, this.availableForAdoption, this.petTypeId]);
+    return result.rows[0].id;
   }
 
   async petType() {
@@ -52,13 +58,12 @@ class AdoptablePet {
     try {
       const query = 'SELECT * FROM pet_types WHERE id = $1;';
       const result = await pool.query(query, [this.petTypeId]);
-
       const relatedPetTypeData = result.rows[0];
       const relatedPetType = new PetType(relatedPetTypeData);
       return relatedPetType;
     } catch(err) {
       console.log(err);
-      throw(err) 
+      throw(err)
     }
   }
 }

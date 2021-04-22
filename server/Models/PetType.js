@@ -27,6 +27,17 @@ class PetType {
     }
   }
 
+  static async getIdByType(type) {
+    try {
+      const result = await pool.query(`SELECT id FROM pet_types WHERE type = $1;`, [type]);
+      const row = result.rows[0];
+
+      return row.id;
+    } catch (err) {
+      console.log(err);
+      throw (err);
+    }
+  }
 
   static async findByType(type) {
     try {

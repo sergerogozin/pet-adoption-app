@@ -1,4 +1,6 @@
 import pg from "pg"
+import AdoptablePet from "./AdoptablePet.js";
+import PetType from "./PetType.js"
 
 const pool = new pg.Pool({
     connectionString: "postgres://postgres:password@localhost:5432/pets-app"
@@ -26,16 +28,13 @@ class SurrenderApplication{
   async save(){
     try {
       //Get the pet_type ID
-      const query0 = "SELECT id FROM pet_types WHERE type = $1;"
-      let result = await pool.query(query0, [this.pet_type]);
-      let petTypeId = result.rows[0].id;
+      let petTypeId = await PetType.getIdByType(this.pet_type);
       //Create the adoptable pet and get it's id.
-      const query1 = "INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_story, pet_type_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;"
-      result = await pool.query(query1, [this.petName, this.img_url, this.petAge, this.vaccination_status, this.adoption_story, petTypeId]);
-      const petId = result.rows[0].id;
+      let ap = new AdoptablePet({name: this.petName, img_url: this.img_url, age: this.age, pet_type: this.pet_type, vaccinationStatus: this.vaccination_status, adoptionStory: this.adoption_story });
+      const petId = await ap.save();
       //Create the surrender_application record
       const query2 = "INSERT INTO surrender_applications (name, phone_number, email, status, adoptable_pet_id) VALUES ($1, $2, $3, $4, $5) RETURNING id;";
-      result = await pool.query(query2, [this.name, this.phoneNumber, this.email, this.status, petId]);
+      const result = await pool.query(query2, [this.name, this.phoneNumber, this.email, this.status, petId]);
       const surrAppId = result.rows[0];
       this.id = surrAppId;
     } catch (error) {
