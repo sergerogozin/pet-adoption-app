@@ -43,11 +43,13 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 10px 5%;
+
   h3 {
     font-family: 'Poppins', sans-serif;
     color: $navy-blue;
     font-weight: bold;
   }
+
   h6 {
     color: gray;
   }
@@ -56,6 +58,7 @@ body {
 .contact-info {
   display: flex;
   align-items: flex-end;
+
   p {
     margin-left: 15px;
     font-size: 14px;
@@ -70,8 +73,10 @@ nav {
   justify-content: flex-start;
   padding: 0 5%;
   background-color: $orange;
+
   div {
     position: relative;
+
     &:hover ul {
       display: block;
     }
@@ -87,14 +92,18 @@ nav {
     border-top: 4px solid $navy-blue;
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .2);
     display: none;
+
     &:hover {
       display: block;
     }
   }
+
   li {
     list-style-type: none;
+
     a {
       color: $orange;
+
       &:hover{
         color: $navy-blue;
       }
@@ -105,6 +114,7 @@ nav {
     margin-right: 20px;
     padding: 20px 0;
     color: #FFF;
+
     &:hover{
       color: $navy-blue;
     } 
@@ -130,17 +140,21 @@ main {
 .tile {
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .2);
   background-color: #FFF;
+
   img{
     height: 200px;
   }
+
   h4{
     padding: 5px 10px;
     border-top: 5px solid $orange;
-   a {
-     color: $navy-blue;
-     font-weight: bold;
-   } 
+
+    a {
+      color: $navy-blue;
+      font-weight: bold;
+    } 
   }
+
   p{
     color: gray;
     padding: 0 10px 5px 10px;
@@ -156,6 +170,7 @@ h1 {
   display: flex;
   justify-content: center;
   width: 55%;
+  
   img {
     max-height: 250px;
   }
@@ -164,6 +179,7 @@ h1 {
 .show-container {
   display: flex;
   justify-content: space-between;
+  
   h1 {
     margin: 10px 0 0 0;
   }
@@ -174,6 +190,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  
   button {
     background-color: $orange;
     color: $navy-blue;
@@ -182,6 +199,7 @@ h1 {
     padding: 10px 5px;
     border-radius: 5px;
     margin-top: 10px;
+    
     &:hover{
       background-color: $navy-blue;
       color: #FFF;

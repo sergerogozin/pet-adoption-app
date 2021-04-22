@@ -32,6 +32,7 @@ const PetShow = props => {
   if(showForm) {
     formHolder = <AdoptionForm />;
   }
+  
   const handleClick = event => {
     event.preventDefault();
     if(!showForm) {
