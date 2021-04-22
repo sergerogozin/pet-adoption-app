@@ -40,7 +40,9 @@ const AdoptablePetsOfAType = (props) => {
   return (
     <div>
       <h1>Adoptable {petType.type}</h1>
-      {pets}
+      <div className="tile-container">
+        {pets}
+      </div>
     </div>
   )
 }

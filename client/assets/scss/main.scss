@@ -1,7 +1,11 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;700&display=swap');
 // place global css here
+$navy-blue: rgba(34, 53, 92, 1);
+$orange: #FFAF00;
+
 *,
 *::before,
 *::after {
@@ -12,3 +16,180 @@
   -moz-tab-size: 4;
   tab-size: 4;
 }
+
+h1, h2, h3, h4, h5, h6, p {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: $navy-blue;
+  background-color: snow;
+}
+
+.st0 {
+  fill:#22355C;
+}
+
+.st1 {
+  fill:#FFAF00;
+}
+
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5%;
+  h3 {
+    font-family: 'Poppins', sans-serif;
+    color: $navy-blue;
+    font-weight: bold;
+  }
+  h6 {
+    color: gray;
+  }
+}
+
+.contact-info {
+  display: flex;
+  align-items: flex-end;
+  p {
+    margin-left: 15px;
+    font-size: 14px;
+    color: gray;
+  }
+}
+
+nav {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 5%;
+  background-color: $orange;
+  div {
+    position: relative;
+    &:hover ul {
+      display: block;
+    }
+  }
+  
+  ul {
+    padding: 10px;
+    margin: 0;
+    position: absolute;
+    top: 64px;
+    background-color: #FFF;
+    width: 100%;
+    border-top: 4px solid $navy-blue;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .2);
+    display: none;
+    &:hover {
+      display: block;
+    }
+  }
+  li {
+    list-style-type: none;
+    a {
+      color: $orange;
+      &:hover{
+        color: $navy-blue;
+      }
+    }
+    
+  }
+  .nav-element {
+    margin-right: 20px;
+    padding: 20px 0;
+    color: #FFF;
+    &:hover{
+      color: $navy-blue;
+    } 
+  }
+}
+
+main {
+  width: 100%;
+  padding: 30px 5%;
+}
+
+.tile-container-header {
+  margin-bottom: 40px;
+}
+
+.tile-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.tile {
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, .2);
+  background-color: #FFF;
+  img{
+    height: 200px;
+  }
+  h4{
+    padding: 5px 10px;
+    border-top: 5px solid $orange;
+   a {
+     color: $navy-blue;
+     font-weight: bold;
+   } 
+  }
+  p{
+    color: gray;
+    padding: 0 10px 5px 10px;
+    font-size: 13px;
+  }
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+.show-image {
+  display: flex;
+  justify-content: center;
+  width: 55%;
+  img {
+    max-height: 250px;
+  }
+}
+
+.show-container {
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    margin: 10px 0 0 0;
+  }
+}
+
+.pet-info {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  button {
+    background-color: $orange;
+    color: $navy-blue;
+    transition: .5s;
+    width: 40%;
+    padding: 10px 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    &:hover{
+      background-color: $navy-blue;
+      color: #FFF;
+    }
+  }
+}
+
+form {
+  margin-top: 40px;
+}
+

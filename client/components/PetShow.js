@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import AdoptionForm from './AdoptionForm.js'
 
 const PetShow = props => {
   const [ petDetails, setPetDetails ] = useState({});
   const [ readyToDisplay, setReadyToDisplay ] = useState(false); 
+  const [ showForm, setShowForm ] = useState(false);
 
   const fetchPetDetails = async () => {
     try {
@@ -26,15 +28,35 @@ const PetShow = props => {
     fetchPetDetails()
   }, []);
 
+  let formHolder;
+  if(showForm) {
+    formHolder = <AdoptionForm />;
+  }
+  const handleClick = event => {
+    event.preventDefault();
+    if(!showForm) {
+      setShowForm(true);
+    }
+  }
+
   if(readyToDisplay) {
     if (petDetails.name) {
       return (
         <div>
-          <img src={petDetails.imageUrl} alt='Pet image'/>
-          <h1>{petDetails.name}</h1>
-          <h3>Age: {petDetails.age}</h3>
-          <h5>Vaccination Status: {petDetails.vaccinationStatus ? "Yes" : "No"} </h5>
-          <p>{petDetails.adoptionStory}</p>
+          <div className="show-container">
+            <div className="show-image">
+              <img src={petDetails.imageUrl} alt='Pet image'/>
+            </div>
+            <div className="pet-info">
+              <h1>{petDetails.name}</h1>
+              <p>Age: {petDetails.age}</p>
+              <p>Vaccination Status: {petDetails.vaccinationStatus ? "Yes" : "No"} </p>
+              <br/>
+              <p>{petDetails.adoptionStory}</p>
+              <button onClick={handleClick}>Adopt Me!</button>
+            </div>
+          </div>
+          {formHolder}
         </div>
       )
     } else {
