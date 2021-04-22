@@ -10,13 +10,13 @@ const PetTypeTile = (props) => {
     }
 
     return(
-        <div>
-            <h3>
-                <Link to={`/pets/${type}`}>{type}</Link>
-            </h3>
+        <div className="tile">
             <Link to={`/pets/${type}`}>
                 <img src={imageUrl} alt={type}></img>
             </Link>
+            <h4>
+                <Link to={`/pets/${type}`}>{type}</Link>
+            </h4>
             {descriptionBlock}
         </div>
     )

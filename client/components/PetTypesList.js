@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import AdoptionForm from "./AdoptionForm"
 
 import PetTypeTile from "./PetTypeTile.js";
 
@@ -36,10 +35,10 @@ const PetTypesList = (props) => {
 
   return (
     <div>
-      <AdoptionForm />
-      <h1>Exotic Pets Adoption Agency</h1>
-      <h3>Types of Pets Available</h3>
-      {tiles}
+      <h3 className="tile-container-header">Types of Pets Available</h3>
+      <div className="tile-container">
+        {tiles}
+      </div>
     </div>
   );
 };
