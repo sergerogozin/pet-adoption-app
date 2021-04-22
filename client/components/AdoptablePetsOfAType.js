@@ -35,7 +35,7 @@ const AdoptablePetsOfAType = (props) => {
 
   useEffect( () => {
     getData();
-  }, [])
+  }, [typeName])
 
   return (
     <div>

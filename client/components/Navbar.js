@@ -26,13 +26,12 @@ const NavBar = props => {
     fetchPetTypes();
   }, [])
 
-  // OPEN QUESTION QUEUE WITH FANG - KEEPING THIS IN CASE DYNAMIC LINKS CAN COME BACK
-  // const linkList = petTypes.map(petType => {
-  //   let firstLetter = petType.type[0].toUpperCase();
-  //   let restOfWord = petType.type.slice(1);
-  //   let typeOfPet = firstLetter + restOfWord;
-  //   return <Link to={`/pets/${petType.type}`} key={petType.id}>{typeOfPet} </Link>
-  // })
+  const linkList = petTypes.map(petType => {
+    let firstLetter = petType.type[0].toUpperCase();
+    let restOfWord = petType.type.slice(1);
+    let typeOfPet = firstLetter + restOfWord;
+    return <Link to={`/pets/${petType.type}`} key={petType.id}>{typeOfPet} </Link>
+  })
 
   return(
     <div>
@@ -40,11 +39,7 @@ const NavBar = props => {
         <Link to="/pets" >Home </Link>
         <Link to="/adoptions/new" >List Pet for Adoption</Link>
           <div>
-            <Link to="/pets/dogs" >Dogs</Link>
-            <Link to="/pets/cats" >Cats</Link>
-            <Link to="/pets/hamsters" >Hamsters</Link>
-            <Link to="/pets/fish" >Fish</Link>
-            <Link to="/pets/turtles" >Turtles</Link>
+            {linkList}
           </div>
       </nav>
       <Switch>
