@@ -45,7 +45,7 @@ class PetType {
     const AdoptablePet = adoptablePetFile.default;
 
     try {
-      const query = `SELECT * FROM adoptable_pets WHERE pet_type_id = $1;`;
+      const query = `SELECT * FROM adoptable_pets WHERE pet_type_id = $1 AND available_for_adoption = true;`;
       const results = await pool.query(query, [this.id]);
 
       const relatedAdoptablePetsData = results.rows;
