@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//msg if no pet with that id
-//don't forget about the adoption form 
 
 const PetShow = props => {
   const [ petDetails, setPetDetails ] = useState({});
@@ -18,13 +16,10 @@ const PetShow = props => {
 
       const responseBody = await response.json();
       setPetDetails(responseBody.adoptablePet);
-      //setReadyToDisplay(true);
     } catch(error) {
-      //setDisplayErrors(true);
       console.error(`Error in fetch: ${error.message}`);
     }
     setReadyToDisplay(true);
-
   }
   
   useEffect(() => {
