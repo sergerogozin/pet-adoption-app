@@ -27,6 +27,26 @@ class PetType {
     }
   }
 
+  static async getTypes(){
+    try {
+      const result = await pool.query("SELECT type FROM pet_types");
+      return result.rows;
+    } catch (err) {
+      console.log(err);
+      throw (err);
+    }
+  }
+
+  static async getIdByType(petType) {
+    try {
+      const result = await pool.query("SELECT id FROM pet_types WHERE type = $1", [petType]);
+      const row = result.rows[0];
+      return row.id;
+    } catch (err) {
+      console.log(err);
+      throw (err);
+    }
+  }
 
   static async findByType(type) {
     try {
@@ -45,7 +65,7 @@ class PetType {
     const AdoptablePet = adoptablePetFile.default;
 
     try {
-      const query = `SELECT * FROM adoptable_pets WHERE pet_type_id = $1 AND available_for_adoption = true;`;
+      const query = `SELECT * FROM adoptable_pets WHERE pet_type_id = $1;`;
       const results = await pool.query(query, [this.id]);
 
       const relatedAdoptablePetsData = results.rows;
