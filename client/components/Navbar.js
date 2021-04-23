@@ -60,7 +60,7 @@ const NavBar = props => {
               {linkList}
             </ul>
           </div>
-        <Link to="/adoptions/new" className="nav-element" >List Pet for Adoption</Link>
+        <Link to="/adoption/new" className="nav-element" >List Pet for Adoption</Link>
       </nav>
       <main>
         <Switch>
