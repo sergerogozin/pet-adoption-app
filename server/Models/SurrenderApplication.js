@@ -23,6 +23,7 @@ class SurrenderApplication{
     this.pet_type = petType || petType;
     this.vaccination_status = vaccinationStatus || vaccination_status;
     this.adoption_story = "Not available";
+    this.available_for_adoption = false;
   }
 
   async save(){
@@ -30,7 +31,7 @@ class SurrenderApplication{
       //Get the pet_type ID
       let petTypeId = await PetType.getIdByType(this.pet_type);
       //Create the adoptable pet and get it's id.
-      let ap = new AdoptablePet({name: this.petName, img_url: this.img_url, age: this.age, pet_type: this.pet_type, vaccinationStatus: this.vaccination_status, adoptionStory: this.adoption_story });
+      let ap = new AdoptablePet({pet_type_id: petTypeId, name: this.petName, img_url: this.img_url, age: this.age, pet_type: this.pet_type, vaccinationStatus: this.vaccination_status, adoptionStory: this.adoption_story, available_for_Adoption: false });
       const petId = await ap.save();
       //Create the surrender_application record
       const query2 = "INSERT INTO surrender_applications (name, phone_number, email, status, adoptable_pet_id) VALUES ($1, $2, $3, $4, $5) RETURNING id;";
