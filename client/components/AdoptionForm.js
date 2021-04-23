@@ -91,7 +91,7 @@ const AdoptionForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>{errorContainer}</div>
+      <div className='error-color'>{errorContainer}</div>
       <label htmlFor="name">
         Name:
       <input
