@@ -12,7 +12,7 @@ class AdoptablePet {
     this.age = age
     this.vaccinationStatus = vaccination_status || vaccinationStatus
     this.adoptionStory = adoption_story || adoptionStory
-    this.availableForAdoption = available_for_adoption || availableForAdoption
+    this.availableForAdoption = available_for_adoption && availableForAdoption
     this.petTypeId = pet_type_id || petTypeId
   }
 
