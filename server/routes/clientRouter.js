@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 });
 
 
-const clientRoutes = ["/pets", "/pets/:type", "/pets/:type/:id", "/adoptions/new"]
+const clientRoutes = ["/pets", "/pets/:type", "/pets/:type/:id", "/adoption/new"]
 router.get(clientRoutes, (req, res) => {
   res.render("home")
 });

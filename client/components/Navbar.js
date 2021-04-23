@@ -67,7 +67,7 @@ const NavBar = props => {
           <Route exact path="/pets" component={PetTypesList} />
           <Route exact path="/pets/:type/:id" component={PetShow} />
           <Route exact path="/pets/:type" component={AdoptablePetsOfAType} />
-          <Route exact path="/adoptions/new" component={SurrenderForm} />
+          <Route exact path="/adoption/new" component={SurrenderForm} />
         </Switch>
       </main>
     </div>
