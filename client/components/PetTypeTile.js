@@ -9,11 +9,13 @@ const PetTypeTile = (props) => {
         descriptionBlock= <p>{description}</p>;
     }
 
+    let capitalizedType = type[0].toUpperCase() + type.slice(1);
+
     return(
         <div className="tile">
             <Link to={`/pets/${type}`}>
                 <img src={imageUrl} alt={type}></img>
-                <h4>{type}</h4>
+                <h4>{capitalizedType}</h4>
             </Link>
             {descriptionBlock}
         </div>

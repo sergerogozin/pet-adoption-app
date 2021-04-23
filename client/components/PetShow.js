@@ -40,6 +40,17 @@ const PetShow = props => {
     }
   }
 
+  let name;
+  if (petDetails.name) {
+    if (petDetails.name[petDetails.name.length -1] === 's') {
+      name = petDetails.name + "'";
+    } else {
+      name = petDetails.name + "'s";
+    }
+  }
+
+
+
   if(readyToDisplay) {
     if (petDetails.name) {
       return (
@@ -50,10 +61,12 @@ const PetShow = props => {
             </div>
             <div className="pet-info">
               <h1>{petDetails.name}</h1>
-              <p>Age: {petDetails.age}</p>
-              <p>Vaccination Status: {petDetails.vaccinationStatus ? "Yes" : "No"} </p>
-              <br/>
-              <p>{petDetails.adoptionStory}</p>
+              <p>Age: <span>{petDetails.age}</span></p>
+              <p>Vaccination Status: <span>{petDetails.vaccinationStatus ? "Yes" : "No"}</span></p>
+              <div className='pet-story'>
+                <h6>{name} Story:</h6>
+                <p>{petDetails.adoptionStory}</p>
+              </div>
               <button onClick={handleClick}>Adopt Me!</button>
             </div>
           </div>

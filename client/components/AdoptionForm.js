@@ -9,6 +9,14 @@ const AdoptionForm = () => {
     homeStatus: "own"
   })
   const [errors, setErrors] = useState([])
+  const [displaySuccess, setDisplaySuccess] = useState(false);
+
+  let successMessage = null;
+  if (displaySuccess) {
+    successMessage = (
+      <div>Success!</div>
+    )
+  }
   
   let errorContainer = null
   if (errors.length !== 0) {
@@ -48,6 +56,10 @@ const AdoptionForm = () => {
         homeStatus: "own"
       })
       setErrors([])
+      setDisplaySuccess(true)
+      setTimeout(()=> {
+        setDisplaySuccess(false)
+      }, 5000);
     }
     else {
       setErrors(errorsArray)
@@ -75,11 +87,11 @@ const AdoptionForm = () => {
     }
   }
 
+
+
   return (
     <form onSubmit={handleSubmit}>
-
       <div>{errorContainer}</div>
-
       <label htmlFor="name">
         Name:
       <input
@@ -111,14 +123,16 @@ const AdoptionForm = () => {
       </label>
 
       <label htmlFor="home-status">Home Status
-    <select name="homeStatus" id="home-status" onChange={handleChange}>
+        <select name="homeStatus" id="home-status" onChange={handleChange}>
           <option value="own">Own</option>
           <option value="rent">Rent</option>
         </select>
       </label>
-      <input type="Submit" value="Submit Info" />
+      <div className="button-holder">
+        <input type="Submit" value="Submit Info" className='submit-button'/>
+        {successMessage}
+      </div>
     </form>
-
   )
 }
 
