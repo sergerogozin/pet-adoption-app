@@ -40,15 +40,22 @@ const NavBar = props => {
   return(
     <div>
       <div id="top-header">
-        <div>
+        <div className='top-header-left'>
+          <img src={"./images/logo.png"}/>
           <hgroup>
-            <h3>Rescue</h3>
-            <h6>Basic Pets Adoption Agency</h6>
+            <h3>Fur Friends</h3>
+            <h6>Pet Adoption Agency</h6>
           </hgroup>
         </div>
         <div className="contact-info">
-          <p>(727) 727-7227</p>
-          <p>Mon - Sun 9am-9pm</p>
+          <div>
+            <h4>Call Us</h4>
+            <p>(727) 727-7227</p>
+          </div>
+          <div>
+            <h4>Hours</h4>
+            <p>Mon-Sun 9am-9pm</p>
+          </div>
         </div>
       </div>
       <nav>
