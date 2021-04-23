@@ -1,7 +1,8 @@
 import { set } from 'lodash';
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 
-import ReusableErrorList from "./ReusableErrorList.js";
+import {jsonGetch, jsonPetch} from "./jsonFetch.js";
+import humanizeErrors from "./ReusableErrorList.js";
 
 const SurrenderForm = () => {
   const [surrenderData, setSurrenderData] = useState({
@@ -16,6 +17,8 @@ const SurrenderForm = () => {
   })
   const [posted, setPosted] = useState(false)
   const [errors, setErrors] = useState([])
+  const choose = "Choose";
+  const [petTypes, setPetTypes] = useState([{type: choose}]);
 
   let errorContainer = null
   if (errors.length !== 0) {
@@ -29,9 +32,9 @@ const SurrenderForm = () => {
       if (surrenderData[fieldName].trim() === "") {
         errorsArray.push(fieldName)
       }
-      if (surrenderData[fieldName] === "Select Pet Type")
+      if (surrenderData[fieldName] === choose)
         errorsArray.push(fieldName);
-      else if (surrenderData[fieldName] === "Choose")
+      else if (surrenderData[fieldName] === choose)
         errorsArray.push(fieldName);
     })
     return errorsArray
@@ -90,6 +93,20 @@ const SurrenderForm = () => {
     }
   }
 
+  const addToPetTypes = petTypeArr => {
+      setPetTypes(petTypes.concat(petTypeArr))
+  }
+
+  useEffect(() => {
+    jsonGetch("/api/v1/petTypes/getTypes", addToPetTypes)
+  },[])
+
+  const reactiveOptions = petTypes.map( type => {
+    return (
+      <option key={type.type} value={type.type} onChange={onChange}>{type.type}</option>
+    )
+  })
+
   const message = posted ? "Your surrender request is in process." : "";
   return (
     <div>
@@ -123,12 +140,8 @@ const SurrenderForm = () => {
         </label>
         <label htmlFor="petType">Pet Type
           <select name="petType" id="petType" onChange={onChange} value={surrenderData.petType}>
-            <option value="Select Pet Type">Select Pet type</option>
-            <option value="dog">dog</option>
-            <option value="cat">cat</option>
-            <option value="hamster">hamster</option>
-            <option value="fish">fish</option>
-            <option value="turle">turtle</option>
+
+          {reactiveOptions}
           </select>
         </label>
         <label htmlFor="petName">Pet Name:
@@ -157,12 +170,12 @@ const SurrenderForm = () => {
         </label>
         <label htmlFor="vaccinationStatus">Vaccination Status:
           <select name="vaccinationStatus" id="vaccinationStatus" onChange={onChange} value={surrenderData.vaccinationStatus}>
-            <option value="Choose">Choose</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
+            <option onChange={onChange} value="Choose">Choose</option>
+            <option onChange={onChange} value="Yes">Yes</option>
+            <option onChange={onChange} value="No">No</option>
           </select>
         </label>
-        <input type="Submit" value="Submit" />
+        <input onChange={onChange} type="Submit" value="Submit" />
       </form>
     </div>
   )

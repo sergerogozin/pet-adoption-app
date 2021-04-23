@@ -11,7 +11,6 @@ rootRouter.use("/api/v1/petTypes", petTypesRouter);
 rootRouter.use("/api/v1/petAdoption", petAdoptionRouter);
 rootRouter.use("/api/v1/adoptablePets", adoptablePetsRouter);
 
-
 rootRouter.use("/", clientRouter);
 
 export default rootRouter

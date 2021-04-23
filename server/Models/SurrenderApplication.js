@@ -20,7 +20,7 @@ class SurrenderApplication{
     this.petName = petName;
     this.img_url = petImage;
     this.age = petAge;
-    this.pet_type = petType === "fish"? petType: petType + "s";
+    this.pet_type = petType || petType;
     this.vaccination_status = vaccinationStatus || vaccination_status;
     this.adoption_story = "Not available";
   }

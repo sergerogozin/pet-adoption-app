@@ -1,5 +1,7 @@
+import React from "react";
+
 const humanizeErrors = errors => {
-  errorContainer = errors.map(error => {
+  let errorContainer = errors.map(error => {
     switch (error) {
       case "phoneNumber":
         error = "phone number";
@@ -22,6 +24,7 @@ const humanizeErrors = errors => {
     }
     return <p>{`${_.capitalize(error)} is empty or not selected.`}</p>
   })
+  return errorContainer;
 }
 
-export default { humanizeErrors };
+export default humanizeErrors;
