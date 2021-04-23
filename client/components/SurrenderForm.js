@@ -110,7 +110,7 @@ const SurrenderForm = () => {
   const message = posted ? "Your surrender request is in process." : "";
   return (
     <div>
-      <div>{errorContainer}</div>
+      <div className='error-color'>{errorContainer}</div>
       <h2>Pet Surrender Application</h2>
       <h3>{message}</h3>
       <form onSubmit={onSubmit}>
@@ -175,7 +175,7 @@ const SurrenderForm = () => {
             <option onChange={onChange} value="No">No</option>
           </select>
         </label>
-        <input onChange={onChange} type="Submit" value="Submit" />
+        <input onChange={onChange} type="Submit" value="Submit" className='submit-button'/>
       </form>
     </div>
   )
