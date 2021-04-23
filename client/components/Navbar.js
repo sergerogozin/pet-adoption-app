@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom"
 import PetTypesList from "./PetTypesList.js"
 import PetShow from "./PetShow.js"
 import AdoptablePetsOfAType from "./AdoptablePetsOfAType.js"
+import SurrenderForm from "./SurrenderForm.js"
 
 const NavBar = props => {
   const [petTypes, setPetTypes] = useState([]);
@@ -34,9 +35,9 @@ const NavBar = props => {
       <li key={petType.id}>
         <Link to={`/pets/${petType.type}`} >{typeOfPet} </Link>
       </li>
-    ) 
+    )
   })
-  
+
   return(
     <div>
       <div id="top-header">
@@ -59,17 +60,18 @@ const NavBar = props => {
               {linkList}
             </ul>
           </div>
-        <Link to="/adoptions/new" className="nav-element" >List Pet for Adoption</Link>
+        <Link to="/adoption/new" className="nav-element" >List Pet for Adoption</Link>
       </nav>
       <main>
         <Switch>
           <Route exact path="/pets" component={PetTypesList} />
           <Route exact path="/pets/:type/:id" component={PetShow} />
           <Route exact path="/pets/:type" component={AdoptablePetsOfAType} />
+          <Route exact path="/adoption/new" component={SurrenderForm} />
         </Switch>
       </main>
     </div>
-   
+
   )
 }
 

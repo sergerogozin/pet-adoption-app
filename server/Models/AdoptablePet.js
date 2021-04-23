@@ -10,7 +10,7 @@ class AdoptablePet {
     this.name = name
     this.imageUrl = img_url || imageUrl
     this.age = age
-    this.vaccinationStatus = vaccination_status || vaccination_status
+    this.vaccinationStatus = vaccination_status || vaccinationStatus
     this.adoptionStory = adoption_story || adoptionStory
     this.availableForAdoption = available_for_adoption || availableForAdoption
     this.petTypeId = pet_type_id || petTypeId
@@ -33,15 +33,25 @@ class AdoptablePet {
   static async findById(id) {
     try {
       const result = await pool.query("SELECT * FROM adoptable_pets WHERE id = $1;", [id]);
-
       if (result.rowCount) {
         const petDetailData = result.rows[0];
         const petToReturn = new this(petDetailData);
-        return petToReturn; 
+        return petToReturn;
       }
     } catch(err) {
       console.log(err);
       throw(err);
+    }
+  }
+
+  async save(){
+    try {
+      const query = "INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_story, available_for_adoption, pet_type_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;";
+      const result = await pool.query(query, [this.name, this.imageUrl, this.age, this.vaccinationStatus,this.adoptionStory, this.availableForAdoption, this.petTypeId]);
+      return result.rows[0].id;
+    } catch (error) {
+      console.log(error)
+      throw(error);
     }
   }
 
@@ -52,13 +62,12 @@ class AdoptablePet {
     try {
       const query = 'SELECT * FROM pet_types WHERE id = $1;';
       const result = await pool.query(query, [this.petTypeId]);
-
       const relatedPetTypeData = result.rows[0];
       const relatedPetType = new PetType(relatedPetTypeData);
       return relatedPetType;
     } catch(err) {
       console.log(err);
-      throw(err) 
+      throw(err)
     }
   }
 }

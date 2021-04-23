@@ -4,6 +4,16 @@ import PetType from "../../../models/PetType.js"
 
 const petTypesRouter = new express.Router();
 
+petTypesRouter.get("/getTypes", async (req, res)=> {
+  try {
+    const petTypeArr = await PetType.getTypes();
+    res.status(200).json(petTypeArr);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: err });
+  }
+})
+
 petTypesRouter.get("/", async (req, res) => {
     try {
         const petTypes = await PetType.findAll();

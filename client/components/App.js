@@ -14,8 +14,8 @@ const App = props => {
 
   return (
     <BrowserRouter>
-      <Route path="/pets" component={NavBar} />
-    </BrowserRouter>
+      <Route path="/" component={NavBar} />
+     </BrowserRouter>
   )
 }
 
